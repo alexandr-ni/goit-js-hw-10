@@ -1,2 +1,9 @@
 @import './common';
-@import './example';
+
+// base
+@import './base/reset';
+
+// components
+@import './components/loading';
+@import './components/select';
+@import './components/cat-info';
