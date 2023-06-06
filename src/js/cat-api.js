@@ -14,11 +14,13 @@ export function fetchBreeds() {
     })
     .then(cats => {
       return cats.map(cat => {
-        const createOption = document.createElement('option');
-        createOption.value = cat.id;
-        createOption.textContent = cat.name;
+        if (cat.hasOwnProperty('image')) {
+          const createOption = document.createElement('option');
+          createOption.value = cat.id;
+          createOption.textContent = cat.name;
 
-        return createOption;
+          return createOption;
+        }
       });
     });
 }
@@ -27,8 +29,7 @@ export function fetchCatByBreed(breedId) {
   const catId = breedId.target.value;
   const url = `https://api.thecatapi.com/v1/images/search?breed_ids=${catId}&`;
 
-  return fetch(url, options)
-    .then(r => {
-      return r.json();
-    });
+  return fetch(url, options).then(r => {
+    return r.json();
+  });
 }

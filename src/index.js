@@ -48,6 +48,7 @@ function onOptionChange(e) {
     })
     .catch(error => {
       Notify.failure('Oops! Something went wrong! Try reloading the page!');
+      breedSelect.classList.add('is-hidden');
       fetchLoad.classList.add('is-hidden');
     });
 }
